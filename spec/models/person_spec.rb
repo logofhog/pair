@@ -20,11 +20,13 @@ describe Person do
   end
 
   it 'geocodes address' do
-    @person.zip_code = 30338
-    @person.save
-    puts @person.inspect
-    expect(@person.latitude).to be_within(180).of(0)
-    expect(@person.longitude).to be_within(180).of(0)
+    expect(@person.latitude).to be_within(0.0001).of(33.944647)
+    expect(@person.longitude).to be_within(0.0001).of(-84.3226488)
+  end
+
+  it 'fails validation' do
+    @failing_person = Person.new(:name => 'fred')
+    expect(@failing_person.valid?).to be false
   end
                                       
 end

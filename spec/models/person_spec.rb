@@ -15,4 +15,16 @@ describe Person do
 
   end
 
+  before do
+    @person = FactoryGirl.create :person
+  end
+
+  it 'geocodes address' do
+    @person.zip_code = 30338
+    @person.save
+    puts @person.inspect
+    expect(@person.latitude).to be_within(180).of(0)
+    expect(@person.longitude).to be_within(180).of(0)
+  end
+                                      
 end

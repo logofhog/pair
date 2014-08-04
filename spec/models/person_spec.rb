@@ -28,5 +28,15 @@ describe Person do
     @failing_person = Person.new(:name => 'fred')
     expect(@failing_person.valid?).to be false
   end
+
+  it 'fails validates zip code' do
+    @failing_person = Person.new(:name => 'failing fred', :zip_code => 1)
+    expect(@failing_person.valid?).to be false
+  end
+
+  it 'validates zip code' do
+    @passing_person = Person.new(:name => 'failing fred', :zip_code => 30338)
+    expect(@passing_person.valid?).to be true
+  end
                                       
 end

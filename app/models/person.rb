@@ -1,8 +1,18 @@
 require_relative '../../lib/zip_code_lookup.rb'
 
 class Person < ActiveRecord::Base
-
+  belongs_to :user
   has_many :projects
+
+  has_many :messages
+
+  has_many :friendships
+  has_many :friends, :through => :friendships
+
+  has_many :inverse_friendships, :class_name => 'Friendship', 
+           :foreign_key => 'friend_id'
+  has_many :inverse_friends, :through => :inverse_friendships, 
+           :source => :person
 
   validates_presence_of :name, :zip_code
   validate :zip_code_valid?

@@ -38,5 +38,21 @@ describe Person do
     @passing_person = Person.new(:name => 'failing fred', :zip_code => 30338)
     expect(@passing_person.valid?).to be true
   end
+
+  context 'has friends' do
+    before do
+      @person = FactoryGirl.create :person
+      @friend = FactoryGirl.create :person
+      @person.friends << @friend
+    end
+
+    it 'can have friends' do
+      expect(@person.friends).to eq([@friend])
+    end
+
+    it 'can have inverse friends' do
+      expect(@friend.inverse_friends).to eq([@person])
+    end
+  end
                                       
 end

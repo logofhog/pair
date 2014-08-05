@@ -7,6 +7,8 @@ gem 'rails', '4.0.2'
 gem 'sqlite3'
 
 gem 'geocoder'
+gem 'devise'
+gem 'vcr'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

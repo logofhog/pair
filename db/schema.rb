@@ -14,12 +14,12 @@
 ActiveRecord::Schema.define(version: 20140805024652) do
 
   create_table "friendships", force: true do |t|
-    t.integer "person_id"
+    t.integer "user_id"
     t.integer "friend_id"
   end
 
   create_table "messages", force: true do |t|
-    t.integer  "person_id"
+    t.integer  "user_id"
     t.boolean  "unread"
     t.boolean  "sent"
     t.string   "subject"
@@ -28,26 +28,19 @@ ActiveRecord::Schema.define(version: 20140805024652) do
     t.datetime "updated_at"
   end
 
-  create_table "people", force: true do |t|
-    t.string   "name"
-    t.integer  "zip_code"
-    t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.integer  "user_id"
-  end
-
   create_table "projects", force: true do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "person_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
+    t.string   "name"
+    t.integer  "zip_code"
+    t.float    "latitude"
+    t.float    "longitude"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"

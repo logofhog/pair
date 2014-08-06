@@ -1,5 +1,5 @@
 class Message < ActiveRecord::Base
-  belongs_to :person
+  belongs_to :user
 
   scope :sent, -> {where(:sent => true)}
   scope :received, -> {where(:sent => false)}
@@ -9,10 +9,10 @@ class Message < ActiveRecord::Base
       message = self.dup
       message.sent = false
       message.unread = true
-      message.person_id = receiver.id
+      message.user_id = receiver.id
       message.save
     end
-    self.update_attributes :person_id => sender.id, :sent => true,
+    self.update_attributes :user_id => sender.id, :sent => true,
                            :unread => false
   end
 

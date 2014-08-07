@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   validates_presence_of :name, :zip_code
   validate :zip_code_valid?
 
+  acts_as_taggable
   geocoded_by :zip_code
   after_validation :geocode
 

@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'geocoder'
 gem 'devise'
 gem 'vcr'
+gem 'acts-as-taggable-on'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

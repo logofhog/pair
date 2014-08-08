@@ -58,7 +58,7 @@ describe User do
     end
   end
 
-  context 'acts as taggable'
+  context 'acts as taggable' do
     before do
       @user = FactoryGirl.create :user, :email => 'taggable@example.com'
     end
@@ -67,5 +67,7 @@ describe User do
       @user.tag_list.add('rails')
       expect(@user.tag_list).to eq(['rails'])
     end
+  end
       
 end
+

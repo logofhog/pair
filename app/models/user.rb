@@ -25,6 +25,8 @@ class User < ActiveRecord::Base
   geocoded_by :zip_code
   after_validation :geocode
 
+  accepts_nested_attributes_for :tags
+
   private 
 
   def zip_code_valid?

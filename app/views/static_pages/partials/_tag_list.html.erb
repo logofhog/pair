@@ -1,0 +1,12 @@
+this is the tag list
+<%= form_tag tags_url do %>
+  <%= text_field_tag "tag" %>
+  <%= submit_tag "Add Tag" %>
+<% end %>
+<ul><h4> tags </h4>
+<% current_user.tags.each do |t| %>
+  <li><%= t.name %> 
+      <%= link_to 'X', tag_path(t.name), :method => :delete %>
+  </li>
+<% end %>
+</ul>

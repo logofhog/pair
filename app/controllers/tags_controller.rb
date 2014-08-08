@@ -2,7 +2,7 @@ class TagsController < ApplicationController
 
   def create
     @user = current_user
-    @user.tag_list.add(params[:tag])
+    @user.tag_list.add(params[:tag], :parse => true)
     if @user.save
       redirect_to root_path
     else

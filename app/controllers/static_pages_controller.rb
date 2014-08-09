@@ -4,10 +4,9 @@ class StaticPagesController < ApplicationController
 
   def index
     @current_user = current_user
-    nearby = @current_user.nearbys(20)
-    puts nearby
+    @nearby = @current_user.nearbys(20)
     
-    @hash = Gmaps4rails.build_markers(nearby) do |user, marker|
+    @hash = Gmaps4rails.build_markers(@nearby) do |user, marker|
         marker.lat user.latitude
         marker.lng user.longitude
     end

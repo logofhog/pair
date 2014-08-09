@@ -1,6 +1,6 @@
 <%= current_user.name %>
 
-<div>
+<div id = "tag_list">
   <%= render 'static_pages/partials/tag_list' %>
 </div>
 
@@ -9,7 +9,11 @@
 </div>
 
 <div>
+  <%= render 'static_pages/partials/nearby_users_list' %>
+</div>
 
+<div>
+  <%= render 'messages/messages' %>
 </div>
 
 

@@ -3,17 +3,21 @@ class TagsController < ApplicationController
   def create
     @user = current_user
     @user.tag_list.add(params[:tag], :parse => true)
-    if @user.save
-      redirect_to root_path
-    else
-      raise
+    @user.save
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js
     end
   end
 
   def destroy
     current_user.tag_list.remove(tag_params)
     current_user.save
-    redirect_to root_path
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js
+    end
+                   
   end
 
   private

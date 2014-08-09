@@ -1,0 +1,7 @@
+these are the messages
+<%= current_user.messages.count %>
+<div id = 'show_messages'>
+  <% if (current_user.messages.count > 0) %>
+    show messages
+  <% end %>
+</div>

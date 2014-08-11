@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140811015016) do
+ActiveRecord::Schema.define(version: 20140811045846) do
+
+  create_table "broadcasts", force: true do |t|
+    t.string   "message"
+    t.integer  "broadcaster_id"
+    t.integer  "response_to_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "friendships", force: true do |t|
     t.integer "user_id"

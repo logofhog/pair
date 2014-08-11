@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
 
   has_many :projects
 
+  has_many :broadcasts, :foreign_key => 'broadcaster_id'
+
   has_many :messages
 
   has_many :friendships

@@ -1,5 +1,12 @@
 class MessagesController < ApplicationController
 
+  def index
+    @messages = current_user.messages
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def new 
     @message = Message.new
     @receiver = params[:receiver]

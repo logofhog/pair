@@ -1,8 +1,8 @@
 <%= form_tag tags_url, :remote => true do %>
   <%= text_field_tag "tag" %>
-  <%= submit_tag "Add Tag" %>
+  <%= submit_tag "Add Interest " %>
 <% end %>
-<ul><h4> tags </h4>
+<ul><h4> My Interests</h4>
   <div id='tags' >
 <% current_user.tags.each do |t| %>
   <li>

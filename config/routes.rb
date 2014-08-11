@@ -1,7 +1,7 @@
 Pair::Application.routes.draw do
   devise_for :users, :controllers => {:registrations => 'registrations'}
   resources :tags, :only => [:create, :destroy]
-  resources :messages, :only => [:new, :create, :destroy]
+  resources :messages, :only => [:index, :new, :create, :destroy]
 
   root to: 'static_pages#index'
 

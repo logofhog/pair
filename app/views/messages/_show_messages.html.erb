@@ -1,5 +1,7 @@
 this is the show messages
-<% @messages.each do |message| %>
-  <li>  <%= message.inspect %></li>
+<% @messages.received.each do |message| %>
+  <li>From <%= message.sender.name %> </br>
+  Subject <%= message.subject%></br>
+  Message <%= message.body %></li>
 <% end %>
 

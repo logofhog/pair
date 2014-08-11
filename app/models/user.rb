@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :projects
 
   has_many :messages
+  has_many :senders, :foreign_key => 'sender_id', :class_name => 'Message'
 
   has_many :friendships
   has_many :friends, :through => :friendships

@@ -1,8 +1,9 @@
 this is the users list
-<% for location in @nearby %>
-  <li>(<%= location.distance.round(2) %> miles)
-  <%= location.name%>
-  <%= link_to 'message', new_message_path(:receiver => location), :remote=> true %>
-  <div id = 'new_message<%=location.id%>'></div>
+<% for user in @nearby %>
+  <li>(<%= user.distance.round(2) %> miles)
+  <%= user.name%>
+  <%= link_to user.name, user_path(user), :remote=> true %>
+  <%= link_to 'message', new_message_path(:receiver => user), :remote=> true %>
+  <div id = 'new_message<%= user.id %>'></div>
   </li>
   <% end %>

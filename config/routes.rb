@@ -3,6 +3,7 @@ Pair::Application.routes.draw do
   resources :users, :only => [:show]
   resources :tags, :only => [:create, :destroy]
   resources :messages, :only => [:index, :new, :create, :destroy]
+  resources :broadcasts, :only => [:index, :create]
 
   root to: 'static_pages#index'
 

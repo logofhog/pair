@@ -1,5 +1,5 @@
 this is the users list
-<% for user in @nearby %>
+<% for user in @main_page.nearby %>
   <li>(<%= user.distance.round(2) %> miles)
   <%= user.name%>
   <%= link_to user.name, user_path(user), :remote=> true %>

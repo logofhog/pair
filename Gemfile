@@ -34,6 +34,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 group :development, :test do
+  gem 'rails_12factor'
   gem 'sqlite3'
   gem 'spork-rails'
   gem 'rspec-rails'

@@ -1,12 +1,20 @@
 class MainPage
 
-  def initialize(current_user, proximity = 20)
-    @current_user = current_user
-    @proximity = proximity
+  def initialize(params_hash)
+    @current_user = params_hash[:current_user]
+    @proximity = params_hash[:proximity] || 20
+    @interests = params_hash[:interests] 
   end
 
   def nearby
-    @current_user.nearbys(@proximity)
+    users = @current_user.nearbys(@proximity)
+    if @interests
+      users.tagged_with(@interests)
+    end
+  end
+
+  def filter_with_params
+    where(:email => 'e@example.com')
   end
 
   def map_hash  
@@ -22,7 +30,6 @@ class MainPage
     if broadcast_list.empty?
       Struct.new('Message', :message, :broadcaster)
       broadcast_list = [Struct::Message.new('There are no broadcasts in that area!', 'Staff')]
-
     end
     broadcast_list
   end

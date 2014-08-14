@@ -1,7 +1,6 @@
 <ul>
-<% @main_page.broadcasts.each do |b| %>
-  <li> <%= b.message %>
-       sender: <%= b.broadcaster %>
+<% @main_page.broadcasts.each do |broadcast| %>
+  <%= render 'broadcasts/single_broadcast', :broadcast => broadcast %>
   </li>
 <% end %>
 </ul>

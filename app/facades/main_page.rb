@@ -8,14 +8,7 @@ class MainPage
 
   def nearby
     users = @current_user.nearbys(@proximity)
-    if @interests
-      users.tagged_with(@interests)
-    end
-    users
-  end
-
-  def filter_with_params
-    where(:email => 'e@example.com')
+    @interests ? users.tagged_with(@interests) : users
   end
 
   def map_hash  
@@ -30,8 +23,7 @@ class MainPage
   end
 
   def broadcasts 
-    nearby_users = nearby
-    broadcast_list = Broadcast.where(:broadcaster_id => nearby_users.to_a) 
+    broadcast_list = Broadcast.where(:broadcaster_id => nearby.to_a) 
     if broadcast_list.empty?
       Struct.new('Message', :message, :broadcaster)
       broadcast_list = [Struct::Message.new('There are no broadcasts in that area!', 'Staff')]

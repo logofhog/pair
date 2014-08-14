@@ -1,11 +1,16 @@
-Name: <%= user.name %></br>
-Zip Code: <%= user.zip_code %></br>
-<%= link_to 'Message', new_message_path(:receiver => user), :remote=> true %>
+<div id="myModal" class="reveal-modal" data-reveal>
+  Name: <%= user.name %></br>
+  Zip Code: <%= user.zip_code %>
+  <%= current_user.distance_to(user).round(2) %> Miles away </br>
+  <%= link_to 'Message', new_message_path(:receiver => user), :remote=> true %>
 
-<h4>interests:</h4>
-<ul>
-<% user.tags.each do |p| %>
-  <li><%= p.name %></li>
-<% end %>
-</ul>
+  <div id = 'new_message<%= user.id %>'></div>
+    <h4>Interests:</h4>
+    <ul>
+      <% user.tags.each do |p| %>
+        <li><%= p.name %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
 

@@ -3,6 +3,7 @@ require 'spec_helper'
 describe MainPage do
 
   before do
+    User.any_instance.stub(:zip_code_valid?).and_return(:true)
     @user = FactoryGirl.create :user
   end
    

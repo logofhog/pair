@@ -1,0 +1,10 @@
+<div class = 'broadcast'>
+  <div class = 'from'> From:
+    <%= link_to broadcast.broadcaster, user_path(broadcast.broadcaster_id), :remote=> true %>
+    <%= time_ago_in_words(broadcast.created_at) %>  ago
+  </div>
+  <hr>
+  <div class = 'message'>
+    <%= broadcast.message %>
+  </div>
+</div>

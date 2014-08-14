@@ -1,13 +1,19 @@
+
+<div class = 'interest_list'>
+  <ul><h4> My Interests</h4>
+    <div id='tags' >
+
+      <% current_user.tags.each do |t| %>
+        <li>
+          <%= t.name %> <%= link_to 'remove', tag_path(t.name), :method => :delete, :remote => true %>
+        </li>
+
+      <% end %>
+    </div>
+  </ul>
+</div>
+
 <%= form_tag tags_url, :remote => true do %>
   <%= text_field_tag "tag" %>
-  <%= submit_tag "Add Interest " %>
+  <%= submit_tag "Add Interest", :class => 'button small' %>
 <% end %>
-<ul><h4> My Interests</h4>
-  <div id='tags' >
-<% current_user.tags.each do |t| %>
-  <li>
-    <%= t.name %><%= button_to 'delete', tag_path(t.name), :method => :delete, :remote => true %>
-  </li>
-<% end %>
-</div>
-</ul>

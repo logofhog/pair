@@ -11,6 +11,7 @@ class MainPage
     if @interests
       users.tagged_with(@interests)
     end
+    users
   end
 
   def filter_with_params
@@ -18,7 +19,11 @@ class MainPage
   end
 
   def map_hash  
-    hash = Gmaps4rails.build_markers(nearby) do |user, marker|
+    nearby_users = nearby
+    if nearby_users.empty?
+      nearby_users = @current_user
+    end
+    hash = Gmaps4rails.build_markers(nearby_users) do |user, marker|
         marker.lat user.latitude
         marker.lng user.longitude
     end

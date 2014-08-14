@@ -9,6 +9,6 @@
 <div id = 'send_broadcast'>
   <%= form_tag broadcasts_url, :remote => true do %>
     <%= text_area_tag "broadcast[message]" %>
-    <%= submit_tag "Broadcast Message " %>
+    <%= submit_tag "Broadcast Message ", :class => 'button' %>
   <% end %>
 </div>

@@ -1,0 +1,18 @@
+.main_row {
+  margin-top: 20px;
+  width: 100%;
+  display: inline-block;
+}
+
+li {
+  list-style-type: none;
+}
+
+/* Css Map Fix*/
+#map img { 
+    max-width: none;
+}
+/* Css Map Fix*/
+#map label { 
+    width: auto; display:inline; 
+} 

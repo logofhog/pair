@@ -3,7 +3,7 @@ class StaticPagesController < ApplicationController
   before_filter :require_login
 
   def index
-    @main_page = MainPage.new(current_user)
+    @main_page = MainPage.new({:current_user => current_user})
   end
 
   def show

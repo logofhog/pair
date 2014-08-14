@@ -1,25 +1,29 @@
-<%= current_user.name %>
+<div class = 'main_row'>
+  <div class = 'medium-2 columns'>
+    <div id = "tag_list">
+      <%= render 'static_pages/partials/tag_list' %>
+    </div>
+  </div>
 
-<div id = "tag_list">
-  <%= render 'static_pages/partials/tag_list' %>
+  <div class = 'medium-8 columns'>
+    <div>
+      <%= render 'static_pages/partials/map' %>
+    </div>
+  </div>
+
+  <div class = 'medium-2 columns'>
+    <div>
+      <%= render 'static_pages/partials/nearby_users_list' %>
+    </div>
+  </div>
 </div>
 
-<div>
-  <%= render 'static_pages/partials/map' %>
-</div>
+<div class = 'row'>
 
-<div>
-  <%= render 'static_pages/partials/nearby_users_list' %>
-</div>
+  <div id = 'users_show'>
+  </div>
 
-<div>
-  <%= render 'messages/messages' %>
-</div>
-
-<div id = 'users_show'>
-</div>
-
-
-<div id = 'broadcasts'>
-  <%= render 'broadcasts/index' %>
+  <div id = 'broadcasts'>
+    <%= render 'broadcasts/index' %>
+  </div>
 </div>

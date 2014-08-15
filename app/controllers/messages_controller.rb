@@ -1,10 +1,7 @@
 class MessagesController < ApplicationController
 
   def index
-    @messages = current_user.messages
-    respond_to do |format|
-      format.js
-    end
+    @messages = current_user.messages.received
   end
 
   def new 
@@ -25,6 +22,12 @@ class MessagesController < ApplicationController
   end
 
   def destroy
+  end
+
+  def mark_as_read
+    @message = Message.find(params[:message_id])
+    @message.mark_as_read
+    render :json => {}
   end
 
   private

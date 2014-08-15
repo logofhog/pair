@@ -1,0 +1,37 @@
+
+<div class='all_messages'>
+<div class= 'row header'>
+  <div class = 'large-2 column sender'>
+   From 
+  </div>
+  <div class = 'large-6 column subject'>
+    Subject
+  </div>
+  <div class = 'large-4 column timestamps'>
+    Date
+  </div>
+</div>
+
+<% @messages.each do |message| %>
+  <li>  
+  <div class='row single_message <%= 'unread' if message.unread %>' id=<%=message.id%> >
+    <div class = 'large-2 column sender'>
+      <%= message.sender.name %> 
+    </div>
+    <div class = 'large-6 column subject'>
+      <%= message.subject%> 
+    </div>
+    <div class = 'large-4 column timestamps'>
+      <%= message.created_at.strftime('%a %b %d %H:%M:%S')%> 
+      <%= time_ago_in_words(message.created_at)%> ago
+    </div>
+  </div>
+  <div class = 'row message_body'>
+    <div class = 'large-12 column'>
+  <div class='show_message_body hide' id=<%=message.id%>>
+    <%= message.body%> 
+  </div>
+  </div>
+  </li>
+<% end %>
+</div>

@@ -1,0 +1,28 @@
+.all_messages {
+  .header {
+    border: 3px solid black;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  .message_body{
+    border-bottom:1px solid black;
+  }
+  .sender {
+    background-color: #eee;
+  }
+  .subject {
+    background-color: #ddd;
+  }
+  .timestamps {
+    background-color: #eee;
+  }
+  .show_message_body {
+    border: 5px solid #ddd;
+    margin-top:0px;
+    margin-bottom: 3px;
+    padding: 10px;
+  }
+  .unread {
+    border:2px solid orange;
+  }
+}

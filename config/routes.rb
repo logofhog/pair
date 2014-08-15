@@ -5,6 +5,9 @@ Pair::Application.routes.draw do
   resources :messages, :only => [:index, :new, :create, :destroy]
   resources :broadcasts, :only => [:index, :create]
 
+  match 'messages/mark_as_read', :to => 'messages#mark_as_read',
+                                 :via => :post
+
   root to: 'static_pages#index'
 
 

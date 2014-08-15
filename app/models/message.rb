@@ -3,7 +3,9 @@ class Message < ActiveRecord::Base
   belongs_to :sender, :foreign_key => 'sender_id', :class_name => 'User'
 
   scope :sent, -> {where(:sent => true)}
-  scope :received, -> {where(:sent => false)}
+  scope :received, -> {where(:sent => false).order(created_at: :desc)}
+  scope :unread, -> {where(:unread => true)}
+
 
   def send_message(sender, receivers)
     receivers.each do |receiver|
@@ -18,7 +20,11 @@ class Message < ActiveRecord::Base
                            :unread => false, :sender_id => sender.id
   end
 
+  def mark_as_read
+    update_attribute(:unread, false)
+  end
   private
+
   
 
 end

@@ -9,7 +9,7 @@ describe MainPage do
    
   it 'shows no broadcasts if there are none' do
     main_page = MainPage.new({:current_user => @user})
-    expect(main_page.broadcasts.first.message).to eq('There are no broadcasts in that area!')
+    expect(main_page.broadcasts.first.message).to eq('There are no broadcasts in your area!')
   end
 
   context 'filters by interests' do

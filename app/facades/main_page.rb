@@ -23,10 +23,12 @@ class MainPage
   end
 
   def broadcasts 
-    broadcast_list = Broadcast.where(:broadcaster_id => nearby.to_a) 
+    users = nearby << @current_user.id
+    broadcast_list = Broadcast.where(:broadcaster_id => users).
+                                      sort_by(&:created_at).reverse
     if broadcast_list.empty?
       Struct.new('Message', :message, :broadcaster)
-      broadcast_list = [Struct::Message.new('There are no broadcasts in that area!', 'Staff')]
+      broadcast_list = [Struct::Message.new('There are no broadcasts in your area!', 'Staff')]
     end
     broadcast_list
   end

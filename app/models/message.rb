@@ -6,6 +6,8 @@ class Message < ActiveRecord::Base
   scope :received, -> {where(:sent => false).order(created_at: :desc)}
   scope :unread, -> {where(:unread => true)}
 
+  validate :require_subject_or_message
+  before_create :require_subject_line
 
   def send_message(sender, receivers)
     receivers.each do |receiver|
@@ -23,8 +25,17 @@ class Message < ActiveRecord::Base
   def mark_as_read
     update_attribute(:unread, false)
   end
-  private
 
+  private
+  
+  def require_subject_line
+    self.subject = '(No Subject)' if self.subject.blank? 
+  end
+
+  def require_subject_or_message
+    self.errors.add(:missing_data, 'Subject or body is required!') if 
+                  self.subject.blank? && self.body.blank?
+  end
   
 
 end

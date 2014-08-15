@@ -17,4 +17,14 @@ describe Broadcast do
     @broadcast = @user.broadcasts.new(:message=> '')
     expect(@broadcast).to have(1).errors_on(:message)
   end
+
+  it 'enforces broadcast length limit' do
+    too_long_message = 'x' * 256
+    @too_long_broadcast = FactoryGirl.build :broadcast,
+                            :message => too_long_message
+    @too_long_broadcast.valid?
+    expect(@too_long_broadcast.errors).to have_key(:message_too_long)
+
+  end
+
 end

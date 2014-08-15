@@ -2,5 +2,7 @@
 
 FactoryGirl.define do
   factory :message do
+    body 'hey there'
+    subject 'hello'
   end
 end

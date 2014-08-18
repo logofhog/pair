@@ -1,3 +1,8 @@
+  <li>
+  <%= link_to button_message(@main_page.interests),
+      root_path(:interests => button_toggle(@main_page.interests)),
+      :class => 'button' %>
+  </li>
 <h4>Nearby Users</h4>
 <% for user in @main_page.nearby %>
   <li>  <%= link_to user.name, user_path(user), :remote=> true, 

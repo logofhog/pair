@@ -1,9 +1,11 @@
 class MainPage
 
+  attr_reader :interests
+
   def initialize(params_hash)
     @current_user = params_hash[:current_user]
     @proximity = params_hash[:proximity] || 20
-    @interests = params_hash[:interests] 
+    @interests = params_hash[:interests] == 'true'
   end
 
   def nearby

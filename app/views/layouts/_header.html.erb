@@ -11,10 +11,9 @@
     <% if current_user %>
     <ul class="right">
       <li>
-  <% if (current_user.messages.count > 0) %>
-         <%= link_to unread_messages, messages_path, :method => :get %>
-  <% end %>
-
+        <% if (current_user.messages.count > 0) %>
+          <%= link_to unread_messages, messages_path, :method => :get %>
+        <% end %>
       </li>
       <li class="has-dropdown">
       <a href="#"><%= current_user.name %> </a>

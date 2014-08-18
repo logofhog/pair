@@ -8,7 +8,7 @@ class MainPage
 
   def nearby
     users = @current_user.nearbys(@proximity)
-    @interests ? users.tagged_with(@interests) : users
+    @interests ? users.tagged_with(@current_user.tag_list, :any => true) : users
   end
 
   def map_hash  

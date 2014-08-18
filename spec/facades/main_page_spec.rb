@@ -17,10 +17,12 @@ describe MainPage do
       @user2 = FactoryGirl.create :user, :email => 'e@example.com'
       @user2.tag_list.add('rails')
       @user2.save
+      @user.tag_list.add('rails')
+      @user.save
     end
 
     it 'has common interests' do
-      main_page = MainPage.new({:current_user => @user, :interests => 'rails'})
+      main_page = MainPage.new({:current_user => @user, :interests => true})
       expect(main_page.nearby).to eq([@user2])
     end
 

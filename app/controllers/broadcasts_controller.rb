@@ -1,10 +1,5 @@
 class BroadcastsController < ApplicationController
 
-  def index
-    nearby_users = current_user.nearbys(10)
-    @broadcasts = Broadcast.where(:broadcaster_id => nearby_users.to_a)
-  end
-
   def create
     broadcast = Broadcast.new(broadcast_params)
     broadcast.broadcaster_id = current_user.id

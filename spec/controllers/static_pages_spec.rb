@@ -32,7 +32,7 @@ describe StaticPagesController do
     end
 
     it 'filter turned on' do
-      get 'index', {:interests => true}
+      get 'index', {:interests => 'true'}
       expect(assigns(:main_page).nearby).to eq([@user2])
     end
 

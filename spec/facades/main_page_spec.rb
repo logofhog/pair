@@ -29,7 +29,7 @@ describe MainPage do
     it 'has no common interests' do
       @user2.tag_list.remove('rails')
       @user2.save
-      main_page = MainPage.new({:current_user => @user, :interests => 'rails'})
+      main_page = MainPage.new({:current_user => @user, :interests => 'true'})
       expect(main_page.nearby).to eq([])
     end
   end

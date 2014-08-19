@@ -19,7 +19,7 @@ describe TagsController do
 
     it 'allows multiple tags in request' do
       post :create, :tag => 'red, blue, green'
-      expect(@user.tag_list).to eq(['red, blue, green'])
+      expect(@user.tag_list).to eq(['red', 'blue', 'green'])
     end
   end
 

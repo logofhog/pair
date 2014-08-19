@@ -1,5 +1,8 @@
 Pair::Application.routes.draw do
   devise_for :users, :controllers => {:registrations => 'registrations'}
+  devise_scope :user do
+    post "users/sign_in_as_guest" => 'registrations#sign_in_as_guest'
+  end
   resources :users, :only => [:show, :edit, :update]
   resources :tags, :only => [:create, :destroy]
   resources :messages, :only => [:index, :new, :create, :destroy]

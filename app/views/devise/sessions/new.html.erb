@@ -22,5 +22,7 @@
 <% end %>
 
   <div class='row'>
-<%= render "devise/shared/links" %>
+    <%= render "devise/shared/links" %>
+    <%= link_to 'Sign in as guest', users_sign_in_as_guest_path, :method=> :post, :class => 'button' %>
 </div>
+

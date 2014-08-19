@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .broadcast {
+  margin-bottom: 2px;
   border: 1px solid grey;
   .from{
     display:inline;
@@ -12,5 +13,6 @@
   }
   .message {
     padding: 5px;
+    background-color: #eee;
   }
 }

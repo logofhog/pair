@@ -7,11 +7,6 @@ class StaticPagesController < ApplicationController
                                :interests => params[:interests]})
   end
 
-  def show
-
-  end
-
-
   private 
   
   def require_login

@@ -44,6 +44,7 @@ describe User do
 
   context 'has friends' do
     before do
+      User.any_instance.stub(:zip_code_valid?).and_return(true)
       @user = FactoryGirl.create :user, :email => 'example2@example.com'
       @friend = FactoryGirl.build(:user, :email => 'test@test.com')
       @user.friends << @friend
@@ -60,6 +61,7 @@ describe User do
 
   context 'acts as taggable' do
     before do
+      User.any_instance.stub(:zip_code_valid?).and_return(true)
       @user = FactoryGirl.create :user, :email => 'taggable@example.com'
     end
 

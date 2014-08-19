@@ -1,0 +1,7 @@
+<div class = 'large-6 column edit'>
+<%= form_for(@user) do |f| %>
+  <%= f.label :about %>
+  <%= f.text_area :about %>
+  <%= f.submit 'Save Changes', :class => 'button' %>
+<% end %>
+</div>

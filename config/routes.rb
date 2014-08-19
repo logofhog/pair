@@ -1,6 +1,6 @@
 Pair::Application.routes.draw do
   devise_for :users, :controllers => {:registrations => 'registrations'}
-  resources :users, :only => [:show]
+  resources :users, :only => [:show, :edit, :update]
   resources :tags, :only => [:create, :destroy]
   resources :messages, :only => [:index, :new, :create, :destroy]
   resources :broadcasts, :only => [:index, :create]

@@ -4,6 +4,18 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 
+Geocoder.configure(:lookup => :test)
+
+# geocoding stub
+Geocoder::Lookup::Test.set_default_stub(
+  [
+    {
+      'latitude'     => 33.944647,
+      'longitude'    => -84.3226488,
+    }
+  ]
+)
+
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }

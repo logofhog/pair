@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
 
   acts_as_taggable
   geocoded_by :zip_code
-  after_validation :geocode
+  after_validation :geocode, :if => :zip_code_changed?
 
   private 
 

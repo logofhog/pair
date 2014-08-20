@@ -70,6 +70,6 @@ describe User do
       expect(@user.tag_list).to eq(['rails'])
     end
   end
-      
+
 end
 

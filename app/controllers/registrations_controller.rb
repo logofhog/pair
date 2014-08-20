@@ -14,7 +14,9 @@ class RegistrationsController < Devise::RegistrationsController
   def sign_in_as_guest
     @guest = User.find_by(:longitude => -84.3226498) ||
               User.new(:name => 'guest', 
-                       :latitude => 33.944647, :longitude => -84.3226498)
+                       :latitude => 33.944647, :longitude => -84.3226498, 
+                       :email => 'guest_example@example.com',
+                       :zip_code => '30338')
     @guest.save(:validate => false)
     sign_in @guest
     redirect_to root_path

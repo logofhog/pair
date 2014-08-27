@@ -6,7 +6,7 @@ Pair::Application.routes.draw do
   resources :users, :only => [:show, :edit, :update]
   resources :tags, :only => [:create, :destroy]
   resources :messages, :only => [:index, :new, :create, :destroy]
-  resources :broadcasts, :only => [:create]
+  resources :broadcasts, :only => [:index, :create]
 
   match 'messages/mark_as_read', :to => 'messages#mark_as_read',
                                  :via => :post

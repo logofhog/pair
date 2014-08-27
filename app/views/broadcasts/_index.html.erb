@@ -1,5 +1,9 @@
 <ul>
-<% @main_page.broadcasts.each do |broadcast| %>
+  <% if page.to_i > 0 %>
+    <%= link_to 'less', broadcasts_url({:page => page.to_i-1}), :remote => true, :class => 'arrow' %>
+  <% end %>
+    <%= link_to 'more', broadcasts_url({:page => page.to_i+1}), :remote => true, :class => 'arrow'%>
+<% broadcasts.each do |broadcast| %>
   <%= render 'broadcasts/single_broadcast', :broadcast => broadcast %>
   </li>
 <% end %>

@@ -1,0 +1,1 @@
+$('#broadcasts').html("<%= escape_javascript(render(:partial => 'broadcasts/index', :locals =>{:broadcasts => @broadcasts, :page => @page})) %>")

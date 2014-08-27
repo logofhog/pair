@@ -9,6 +9,7 @@ class BroadcastList
   def broadcasts 
     users = nearby << @current_user.id
     broadcast_list = Broadcast.where(:broadcaster_id => users).
+                               includes(:user).
                                limit(20).offset(@page * 20).
                                order('created_at DESC')
     broadcast_list = empty_list if broadcast_list.empty?

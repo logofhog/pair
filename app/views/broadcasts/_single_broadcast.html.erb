@@ -2,7 +2,7 @@
   <div class = 'from'>
     <% unless broadcast.broadcaster == 'Staff' %>
       From:
-    <%= link_to broadcast.broadcaster, user_path(broadcast.broadcaster_id), :remote=> true %>
+    <%= link_to broadcast.user.name, user_path(broadcast.broadcaster_id), :remote=> true %>
     <%= time_ago_in_words(broadcast.created_at) %>  ago
   <% end %>
   </div>

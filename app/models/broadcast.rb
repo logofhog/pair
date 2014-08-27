@@ -1,11 +1,12 @@
 class Broadcast < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :user, :foreign_key => 'broadcaster_id'
+
 
   validates :message, :presence => true
   validate :message_length
 
   def broadcaster
-    User.find(broadcaster_id).name
+    self.user.name
   end
 
   private

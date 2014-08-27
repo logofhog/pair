@@ -1,13 +1,10 @@
 <ul>
-  <% if page.to_i > 0 %>
-    <%= link_to 'less', broadcasts_url({:page => page.to_i-1}), :remote => true, :class => 'arrow' %>
-  <% end %>
-    <%= link_to 'more', broadcasts_url({:page => page.to_i+1}), :remote => true, :class => 'arrow'%>
 <% broadcasts.each do |broadcast| %>
   <%= render 'broadcasts/single_broadcast', :broadcast => broadcast %>
-  </li>
 <% end %>
 </ul>
+<%= less_button(page) %>
+<%= more_button(page, broadcasts) %>
 
 <div id = 'send_broadcast'>
   <%= form_tag broadcasts_url, :remote => true do %>
